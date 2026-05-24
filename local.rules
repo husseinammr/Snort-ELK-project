@@ -1,0 +1,19 @@
+# $Id: local.rules,v 1.11 2004/07/23 20:15:44 bmc Exp $
+# ----------------
+# LOCAL RULES
+# ----------------
+# This file intentionally does not come with signatures.  Put your local
+# additions here.
+alert icmp any any -> any any (msg:"ICMP Ping Detected"; sid: 1000001;rev:1;)
+
+alert tcp any any -> $HOME_NET any (msg:"NMAP Scan Detected"; flags:S; threshold:type threshold, track by_src, count 10,seconds 1; sid:1000002;rev:1;)
+
+alert tcp any any -> $HOME_NET 445 (msg:"EternalBlue Metasploit Detected"; content:"|ff|SMB"; sid:1000003; rev:1;)
+
+alert tcp any any -> $HOME_NET 22 (msg:"Brute Force SSH Detected"; threshold:type threshold, track by_src, count 5, seconds 2; sid:1000004; rev:1;)
+
+alert tcp any any -> $HOME_NET any (msg:"Meterpreter Session Detected"; content:"meterpreter"; nocase; sid:1000005; rev:1;)
+
+alert tcp any any -> 192.168.56.100 6666 (msg:"ATTACK: Meterpreter Session Connection Detected"; flow: to_server,established; content:"rev_tcp"; nocase; sid:1000006; rev:1;)
+
+alert tcp 192.168.56.100 8080 -> any any (msg:"EXPLOIT: HTA File Delivery Detected"; content:".hta"; nocase; sid:1000007; rev:1;)
