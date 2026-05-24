@@ -1,6 +1,8 @@
  # Autonomous Threat Detection & Real-Time SIEM Monitoring System
 ### Integrated Security Operations Center (SOC) Simulation Lab with Snort IDS & ELK Stack
-
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
+![Logstash](https://img.shields.io/badge/Logstash-005571?style=for-the-badge&logo=logstash&logoColor=white)
+![Kibana](https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=kibana&logoColor=white)
 ---
 
 ## 📋 Overview
